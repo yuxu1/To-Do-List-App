@@ -36,3 +36,15 @@ function newItem() {
     // 4. Reordering the items: 
     $('#list').sortable();
 }
+
+//can press "Enter" to add item to list
+//fixes bug -"Enter" normally refreshes page,erasing all list items
+$(document).ready(function(){
+    $('#input').keypress(function(event){
+        //keyCode 13 = "Enter"
+        if(event.keyCode===13){
+            event.preventDefault();
+            newItem();
+        }
+    });
+});
